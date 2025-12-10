@@ -1,0 +1,2 @@
+[console_scripts]
+clix = clix.main:app
