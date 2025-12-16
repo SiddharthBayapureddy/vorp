@@ -21,7 +21,7 @@ app = typer.Typer()
 console = Console()
 
 # Configuration
-CHAT_HISTORY = Path.home() / ".clix_chat_history.json"
+CHAT_HISTORY = Path.home() / ".vorp_chat_history.json"
 MODEL_NAME = "groq/llama-3.1-8b-instant" 
 MAX_HISTORY_LENGTH = 20
 
@@ -78,7 +78,7 @@ def chat(
     list_models: bool = typer.Option(False, "--list", "-l", help="List available AI models."),
 ):
     """
-    clix: Intelligence met the command line.
+    vorp: Intelligence met the command line.
 
     \b
     Interactive Commands: 
@@ -103,7 +103,7 @@ def chat(
             table.add_row(m["name"], m["id"], m["provider"])
 
         console.print(table)
-        console.print("\n[dim]Usage: clix --model <Model ID>[/dim]")
+        console.print("\n[dim]Usage: vorp --model <Model ID>[/dim]")
         raise typer.Exit()
 
     if not os.getenv("GROQ_API_KEY") and not os.getenv("GEMINI_API_KEY"):
@@ -122,10 +122,12 @@ def chat(
     model_display_name = next((m["name"] for m in SUPPORTED_MODELS if m["id"] == model), model)
     
     ascii_art = r"""
-[bold cyan]   ___ _    ___ __  __[/bold cyan]
-[bold cyan]  / __| |  |_ _|\ \/ /[/bold cyan]
-[bold cyan] | (__| |__ | |  >  < [/bold cyan]
-[bold cyan]  \___|____|___|/_/\_\ [/bold cyan] [dim]v1.0[/dim]"""
+[bold cyan] __      __  ____   _____   _____ [/bold cyan]
+[bold cyan] \ \    / / / __ \ |  __ \ |  __ \[/bold cyan]
+[bold cyan]  \ \  / / | |  | || |__) || |__) |[/bold cyan]
+[bold cyan]   \ \/ /  | |  | ||  _  / |  ___/ [/bold cyan]
+[bold cyan]    \  /   | |__| || | \ \ | |     [/bold cyan]
+[bold cyan]     \/     \____/ |_|  \_\|_|     [/bold cyan] [dim]v1.0[/dim]"""
     
     console.print(ascii_art)
     console.print("\n")
@@ -223,7 +225,7 @@ def chat(
 
                 console.print(f"[bold cyan]Indexing codebase at {path_str}...[/bold cyan]")
                 try:
-                    from clix import rag
+                    from vorp import rag
                     
                     with Live(Spinner("dots", text="Indexing files...", style="green"), refresh_per_second=10) as live:
                          count = rag.index_codebase(str(idx_path))
@@ -260,7 +262,7 @@ def chat(
             if rag_enabled:
                 if active_project_path:
                     try:
-                        from clix import rag
+                        from vorp import rag
                         context_str = rag.retrieve_context(user_input, project_id=active_project_path, n_results=3)
                         
                         if context_str:
@@ -281,7 +283,7 @@ def chat(
                 grid.add_column()
                 
                 grid.add_row(
-                    "Clix >" , Spinner("dots", style="bold cyan", text="Thinking...")
+                    "Vorp >" , Spinner("dots", style="bold cyan", text="Thinking...")
                 )
                 live.update(grid)
 
@@ -300,7 +302,7 @@ def chat(
                     grid.add_column(style="bold blue", no_wrap=True)
                     grid.add_column()
                     
-                    grid.add_row("Clix >", Markdown(response_text))
+                    grid.add_row("Vorp >", Markdown(response_text))
                     live.update(grid)
             
 

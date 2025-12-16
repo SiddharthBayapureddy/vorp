@@ -1,8 +1,8 @@
-# 🧠 clix
+# 🧠 vorp
 
-<img src="https://raw.githubusercontent.com/SiddharthBayapureddy/clix/master/logo.jpeg" alt="clix logo" width="200">
+<img src="https://raw.githubusercontent.com/SiddharthBayapureddy/vorp/master/logo.jpeg" alt="vorp logo" width="200">
 
-**clix** is a terminal-based AI pair programmer. It indexes your codebase, allowing you to ask context-aware questions and retrieve relevant code snippets without leaving your command line environment.
+**vorp** is a terminal-based AI pair programmer. It indexes your codebase, allowing you to ask context-aware questions and retrieve relevant code snippets without leaving your command line environment.
 
 > **Note:** This project is under active development.
 
@@ -10,7 +10,7 @@
 
 *   **RAG (Chat with Codebase):** Index any project folder to enable context-aware queries.
     *   **Project Isolation:** Uses a global vector database with metadata filtering. Context from Project A will never leak into Project B.
-    *   **Local Storage:** All embeddings are stored locally in `~/.clix_rag_db`.
+    *   **Local Storage:** All embeddings are stored locally in `~/.vorp_rag_db`.
 *   **Multi-Model Support:** Integrates with Groq and Google Gemini to provide access to models like Llama 3.3, DeepSeek R1, and Gemini 2.5 Pro.
 *   **Session Persistence:** Chat history is saved locally, allowing you to resume sessions later.
 *   **Context Management:** Manually inject specific files into the context window for targeted assistance.
@@ -26,9 +26,10 @@
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/SiddharthBayapureddy/clix.git
-    cd clix
+    git clone https://github.com/SiddharthBayapureddy/vorp.git
+    cd vorp
     ```
+    *(Note: If the repository is renamed to `vorp`, clone that instead.)*
 
 2.  **Create a virtual environment:**
     *   **Windows:**
@@ -58,7 +59,7 @@
 
 Start the application:
 ```bash
-clix
+vorp
 ```
 
 ### Interactive Commands
@@ -75,7 +76,7 @@ clix
 
 ### CLI Arguments
 
-You can configure `clix` at startup using these flags:
+You can configure `vorp` at startup using these flags:
 
 | Flag | Description |
 | :--- | :--- |
@@ -85,12 +86,12 @@ You can configure `clix` at startup using these flags:
 
 *Example:*
 ```bash
-clix --model "gemini/gemini-2.5-pro"
+vorp --model "gemini/gemini-2.5-pro"
 ```
 
 ## 🏗️ Architecture
 
-The Retrieval-Augmented Generation (RAG) system in `clix` is built for speed and privacy. Here is how it works under the hood:
+The Retrieval-Augmented Generation (RAG) system in `vorp` is built for speed and privacy. Here is how it works under the hood:
 
 1.  **Ingestion & Chunking:**
     *   When you run `/index`, the system walks through your project directory.
@@ -101,7 +102,7 @@ The Retrieval-Augmented Generation (RAG) system in `clix` is built for speed and
     *   The model converts the text code into a 384-dimensional vector (a list of numbers representing the semantic meaning).
 
 3.  **Vector Storage (ChromaDB):**
-    *   These vectors are stored in **ChromaDB**, a persistent local vector database located at `~/.clix_rag_db`.
+    *   These vectors are stored in **ChromaDB**, a persistent local vector database located at `~/.vorp_rag_db`.
     *   **Isolation Layer:** Every vector is tagged with a `project_id` metadata field (the absolute path of the project). This acts as a strict filter, ensuring that queries only search within the active project's scope.
 
 4.  **Retrieval (Cosine Similarity):**

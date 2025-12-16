@@ -12,7 +12,7 @@ certifi==2025.11.12
 charset-normalizer==3.4.4
 chromadb==1.3.7
 click==8.3.1
--e git+https://github.com/SiddharthBayapureddy/clix.git@ca3ac6cda0b9a61fee9640a827557f7b905bdb9f#egg=clix_cli
+-e git+https://github.com/SiddharthBayapureddy/clix.git@ca3ac6cda0b9a61fee9640a827557f7b905bdb9f#egg=vorp_cli
 colorama==0.4.6
 coloredlogs==15.0.1
 distro==1.9.0

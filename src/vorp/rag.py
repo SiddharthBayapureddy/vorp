@@ -4,7 +4,7 @@ from chromadb.utils import embedding_functions
 from pathlib import Path
 
 # Database Setup
-DB_PATH = Path.home() / ".clix_rag_db"
+DB_PATH = Path.home() / ".vorp_rag_db"
 
 try:
     client = chromadb.PersistentClient(path=str(DB_PATH))
@@ -19,7 +19,7 @@ except Exception as e:
     client = None
     collection = None
 
-IGNORE_DIRS = {".git", "__pycache__", "node_modules", "venv", ".idea", ".vscode", "dist", "build", ".clix_rag_db"}
+IGNORE_DIRS = {".git", "__pycache__", "node_modules", "venv", ".idea", ".vscode", "dist", "build", ".vorp_rag_db"}
 IGNORE_EXTS = {".pyc", ".exe", ".dll", ".so", ".dylib", ".png", ".jpg", ".jpeg", ".gif", ".ico"}
 
 def chunk_text(text, chunk_size=1000, overlap=200):

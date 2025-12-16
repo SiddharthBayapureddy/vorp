@@ -3,10 +3,10 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "clix-cli"
+name = "vorp"
 readme = "README.md"
 authors = [{name = "Siddharth Bayapureddy" , email = "siddharthbayapureddy@gmail.com"}]
-version = "0.1.1"
+version = "0.1.2"
 description = "A terminal-based AI companion."
 requires-python = ">=3.10"
 dependencies = [
@@ -73,4 +73,4 @@ dependencies = [
 
 
 [project.scripts]
-clix = "clix.main:app"
+vorp = "vorp.main:app"
