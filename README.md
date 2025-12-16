@@ -1,6 +1,6 @@
 # 🧠 clix
 
-<img src="./logo.jpeg" alt="clix logo" width="200">
+<img src="https://raw.githubusercontent.com/SiddharthBayapureddy/clix/master/logo.jpeg" alt="clix logo" width="200">
 
 **clix** is a terminal-based AI pair programmer. It indexes your codebase, allowing you to ask context-aware questions and retrieve relevant code snippets without leaving your command line environment.
 
