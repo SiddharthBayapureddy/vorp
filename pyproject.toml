@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "vorp"
 readme = "README.md"
 authors = [{name = "Siddharth Bayapureddy" , email = "siddharthbayapureddy@gmail.com"}]
-version = "0.1.10"
+version = "0.1.11"
 description = "A terminal-based AI companion."
 requires-python = ">=3.10"
 license = {text = "MIT"}
@@ -43,3 +43,6 @@ Homepage = "https://github.com/SiddharthBayapureddy/vorp"
 Repository = "https://github.com/SiddharthBayapureddy/vorp.git"
 Issues = "https://github.com/SiddharthBayapureddy/vorp/issues"
 "Source Code" = "https://github.com/SiddharthBayapureddy/vorp"
+
+[tool.setuptools.package-data]
+vorp = ["*.json"]

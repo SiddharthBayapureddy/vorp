@@ -1,6 +1,6 @@
 # 🧠 Vorp: The Intelligent Terminal Companion
 
-![vorp demo](assets/demo.gif)
+![vorp demo](https://raw.githubusercontent.com/SiddharthBayapureddy/vorp/main/assets/demo.gif)
 
 **Vorp** is not just another CLI tool; it is a fully autonomous AI agent that lives in your terminal. It bridges the gap between natural language and system operations, allowing you to code, debug, refactor, and manage your system using plain English. 
 
